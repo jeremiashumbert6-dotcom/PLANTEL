@@ -1,0 +1,229 @@
+td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plantel Oficial</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+/* ENCABEZADO */
+header{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:25px;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+
+.escudo{
+    width:120px;
+    margin-bottom:10px;
+}
+
+header h1{
+    font-size:36px;
+    letter-spacing:2px;
+}
+
+/* CONTENEDOR */
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    font-size:17px;
+    border:2px solid #1565c0;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.contador{
+    color:#0d47a1;
+    font-weight:bold;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+th{
+    background:#1565c0;
+    color:white;
+    padding:15px;
+    font-size:18px;
+}
+    background:#e3f2fd;
+}
+
+footer{
+    margin:35px;
+    text-align:center;
+    color:#666;
+    font-size:14px;
+}
+
+@media(max-width:700px){
+
+header h1{
+    font-size:28px;
+}
+
+.escudo{
+    width:90px;
+}
+
+table{
+    font-size:14px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="escudo.png" class="escudo" alt="Escudo">
+
+<h1>PLANTEL OFICIAL</h1>
+
+</header>
+
+<div class="container">
+
+<input
+type="text"
+id="buscador"
+placeholder="🔍 Buscar jugador..."
+onkeyup="buscar()">
+
+<div class="contador">
+Total de jugadores: <span id="cantidad">26</span>
+</div>
+
+<table id="tabla">
+
+<thead>
+
+<tr>
+
+<th>Jugador</th>
+
+<th>Posición</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>Armani Leandro</td><td>Delantero</td></tr>
+<tr><td>Benitez Facundo</td><td>Mediocampista</td></tr>
+<tr><td>Calvo Martin</td><td>Mediocampista</td></tr>
+<tr><td>Celman Mariano</td><td>Defensor</td></tr>
+<tr><td>Conochiari Gianfranco</td><td>Mediocampista</td></tr>
+<tr><td>Conochiari Stefano</td><td>Defensor</td></tr>
+<tr><td>Fernandez Cristian</td><td>Defensor</td></tr>
+<tr><td>Fernandez Ivan</td><td>Defensor</td></tr>
+<tr><td>Giacumino Juan Cruz</td><td>Mediocampista</td></tr>
+<tr><td>Luraschi Nicolas</td><td>Defensor</td></tr>
+<tr><td>Maraschin Martin</td><td>Mediocampista</td></tr>
+<tr><td>Moreno Axel</td><td>Defensor</td></tr>
+<tr><td>Pagura Gonzalo</td><td>Defensor</td></tr>
+<tr><td>Paralta Juan Ignacio</td><td>Arquero</td></tr>
+<tr><td>Quiroga Franco</td><td>Delantero</td></tr>
+<tr><td>Rodriguez Octavio</td><td>Mediocampista</td></tr>
+<tr><td>Rios Federico</td><td>Mediocampista</td></tr>
+<tr><td>Sosa Santiago</td><td>Delantero</td></tr>
+<tr><td>Sosa Santiago Jr</td><td>Mediocampista</td></tr>
+<tr><td>Talamonti Martin</td><td>Arquero</td></tr>
+<tr><td>Tassi Gaston</td><td>Mediocampista</td></tr>
+<tr><td>Tassi Martin</td><td>Mediocampista</td></tr>
+<tr><td>Tassi Agustin</td><td>Delantero</td></tr>
+<tr><td>Tognato Matias</td><td>Delantero</td></tr>
+<tr><td>Bernachini Mateo</td><td>Mediocampista</td></tr>
+<tr><td>Bernachini Gianluca</td><td>Defensor</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<footer>
+© Plantel Oficial
+</footer>
+
+<script>
+
+function buscar(){
+
+let input=document.getElementById("buscador").value.toUpperCase();
+
+let tabla=document.getElementById("tabla");
+
+let tr=tabla.getElementsByTagName("tr");
+
+let visibles=0;
+
+for(let i=1;i<tr.length;i++){
+
+let td=tr[i].getElementsByTagName("td")[0];
+
+if(td){
+
+let txt=td.textContent || td.innerText;
+
+if(txt.toUpperCase().indexOf(input)>-1){
+
+tr[i].style.display="";
+
+visibles++;
+
+}else{
+
+tr[i].style.display="none";
+
+}
+
+}
+
+}
+
+document.getElementById("cantidad").innerHTML=visibles;
+
+}
+
+</script>
+
+</body>
+</html>
